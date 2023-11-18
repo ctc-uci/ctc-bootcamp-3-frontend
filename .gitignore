@@ -29,6 +29,7 @@ dist-ssr
 /node_modules
 /.pnp
 .pnp.js
+.yarn/
 
 # testing
 /coverage
