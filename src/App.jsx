@@ -7,6 +7,8 @@ import NavBar from './components/NavBar/NavBar.jsx';
 import TTL from './views/TwoTruthsOneLie/TTL';
 import RPS from './views/RockPaperScissors/RPS.jsx';
 
+import AllMembers from './views/AllMembersView/AllMembers';
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -16,6 +18,7 @@ const App = () => {
         <Route path="/members/:memberId" element={<SingleMember />} />
         <Route exact path="/truthslies" element={<TTL />} />
         <Route exact path="/rps" element={<RPS />} />
+        <Route exact path="/AllMembers" element={<AllMembers/>}/>
       </Routes>
     </BrowserRouter>
   );
