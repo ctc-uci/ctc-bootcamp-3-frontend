@@ -12,6 +12,7 @@ const TTL = () => {
       // TODO: in general, don't use alert: this is just for illustrative purposes
       alert("You lost!")
     }
+    setMemberId(memberId + 1);
   }
 
   return <main>
