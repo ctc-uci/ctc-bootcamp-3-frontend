@@ -1,4 +1,9 @@
 
+.hangman-display {
+  display: flex;
+  flex-direction: row;
+}
+
 .hangman-letter{
   margin: 0 0.1ch;
 }

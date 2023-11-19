@@ -1,0 +1,11 @@
+.hanged-man-container {
+  max-height: 30vh;
+  max-height: 30dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.5rem;
+  padding: 0;
+  margin: 0;
+  justify-content: stretch;
+}
