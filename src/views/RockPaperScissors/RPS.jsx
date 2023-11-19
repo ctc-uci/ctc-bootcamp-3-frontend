@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './RPS.module.css';
 import Loading from '../../components/Loading/Loading';
 import { AboutYouBackend } from '../../utils/utils';
@@ -8,7 +8,6 @@ const RPS = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [members, setMembers] = useState([]);
   const [playAgainstId, setPlayAgainstId] = useState(null);
-  const [result, setResult] = useState(null);
 
   const handleSubmit = async selectedMove => {
     const getMemberMove = async () => {

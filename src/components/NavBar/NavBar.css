@@ -1,0 +1,30 @@
+ul {
+    list-style-type: none;
+    margin-left: 1rem;
+    margin-top: 0;
+    padding: 1rem;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lavender;
+}
+
+.nav-div {
+    background-color: #6331d8;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.nav-list-element {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
