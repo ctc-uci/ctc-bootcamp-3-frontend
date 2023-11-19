@@ -1,0 +1,25 @@
+.rps-container {
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rps-select {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.player-select {
+}
+
+.move-select {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  display: block;
+}

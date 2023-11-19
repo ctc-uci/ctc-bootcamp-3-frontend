@@ -1,4 +1,3 @@
-
 .letter-guesser {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
@@ -12,7 +11,7 @@
   padding: 0.5em;
 }
 
-.letter-button{
+.letter-button {
   border: 1px solid var(--button-border-color);
   background-color: var(--button-bg-color);
 }
