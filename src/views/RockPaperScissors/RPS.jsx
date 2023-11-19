@@ -8,6 +8,7 @@ const RPS = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [members, setMembers] = useState([]);
   const [playAgainstId, setPlayAgainstId] = useState(null);
+  const [playAgainst, setPlayAgainst] = useState('');
 
   const handleSubmit = async selectedMove => {
     const getMemberMove = async () => {
@@ -63,19 +64,19 @@ const RPS = () => {
             <label>Choose a Player:</label>
             {members.map(member => {
               return (
-                <label key={member.memberId}>
+                <button
+                  key={member.memberId}
+                  onClick={() => {
+                    setPlayAgainst(member.memberName);
+                    setPlayAgainstId(member.id);
+                  }}
+                >
                   {member.memberName}
-                  <input
-                    type="radio"
-                    key={member.id}
-                    value={member.memberName}
-                    onClick={() => {
-                      setPlayAgainstId(member.id);
-                    }}
-                  />
-                </label>
+                </button>
               );
             })}
+
+            <p>Selected: {playAgainst}</p>
           </div>
           <div className={styles['move-select']}>
             <button
