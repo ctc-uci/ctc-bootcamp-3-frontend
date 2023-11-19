@@ -4,7 +4,10 @@
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 1rem;
-  max-width: 25ch;
+  padding: 1em;
+  border: 1px solid var(--text-color);
+  border-radius: 1rem;
+  width: 50ch;
 }
 
 .letter-button,
@@ -14,6 +17,7 @@
 
 .letter-button{
   border: 1px solid var(--button-border-color);
+  border-radius: 0.5rem;
   background-color: var(--button-bg-color);
 }
 
