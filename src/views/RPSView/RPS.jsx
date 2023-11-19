@@ -1,11 +1,11 @@
-import {Flex} from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { AboutYouBackend } from '../../utils/utils';
 import RPSMoves from '../../components/RPS/RPSMove';
 
 export default function RPS() {
   const [data, setData] = useState([]);
-  console.log(data)
+  console.log(data);
   const [move, setMove] = useState('');
 
   useEffect(() => {
@@ -24,7 +24,9 @@ export default function RPS() {
   }
 
   const values = ['Rock', 'Paper', 'Scissor'];
-  const valueList = values.map(item => [<RPSMoves key={item} value={item} handleInput={handleInput} />]);
+  const valueList = values.map(item => [
+    <RPSMoves key={item} value={item} handleInput={handleInput} />,
+  ]);
 
   return (
     <Flex>

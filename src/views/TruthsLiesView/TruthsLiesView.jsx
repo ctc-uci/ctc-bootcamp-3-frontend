@@ -22,7 +22,7 @@ export default function TruthsLiesView() {
   function handleInput(value) {
     setChosen(value);
   }
-  console.log(handleInput)
+  console.log(handleInput);
   console.log(lie);
   return (
     <Flex flexDir={'column'} justify={'center'} align={'center'}>

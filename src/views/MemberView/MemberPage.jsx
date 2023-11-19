@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -13,15 +12,14 @@ const MemberPage = () => {
     const nameInformation = await AboutYouBackend.get('./members/' + memberID);
     setNameInformation(nameInformation.data[0]);
     console.log(nameInformation);
-  }
+  };
 
   useEffect(() => {
     getNames();
   }, []);
-  
 
   return (
-    <> 
+    <>
       <h1>Member Page</h1>
       <p>Name: {nameInformation.memberName}</p>
       <p>{nameInformation.memberYear}</p>
@@ -34,6 +32,6 @@ const MemberPage = () => {
       <p>{nameInformation.funnyQuote}</p>
     </>
   );
-}
+};
 
 export default MemberPage;

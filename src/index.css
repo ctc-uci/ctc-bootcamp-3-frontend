@@ -10,7 +10,8 @@
   --button-disabled-text-color: #222;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   font-family: 'Open Sans', Helvetica, sans-serif;
   background-color: var(--bg-color);
