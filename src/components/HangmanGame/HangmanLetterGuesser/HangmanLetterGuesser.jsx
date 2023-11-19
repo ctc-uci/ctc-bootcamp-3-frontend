@@ -4,13 +4,13 @@ import PropTypes from "prop-types";
 
 const HangmanLetterGuesser = ({ guesses, onGuess, disabled }) => {
 
-  return <div>
+  return <div className={styles["letter-guesser"]}>
     {ALPHABET.map((letter)=>{
       const isDisabled = guesses.includes(letter) || disabled;
       const onClick = () => { onGuess(letter); };
 
       return <button
-        className={isDisabled? styles['letter-button'] : styles['letter-button-disabled']}
+        className={isDisabled? styles['letter-button-disabled'] : styles['letter-button']}
         key={letter}
         type="button"
         onClick={isDisabled ? null : onClick}

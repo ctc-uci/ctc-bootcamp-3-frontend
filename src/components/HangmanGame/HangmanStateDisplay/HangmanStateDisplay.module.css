@@ -1,0 +1,16 @@
+
+.hangman-letter{
+  margin: 0 0.1ch;
+}
+
+.guess-box {
+  border: 1px solid var(--text-color);
+  border-radius: 1rem;
+  padding: 1em;
+  padding-bottom: 0;
+}
+
+.phrase-to-guess {
+  text-align: center;
+  font-size: 2rem;
+}

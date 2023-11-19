@@ -4,9 +4,15 @@ import PropTypes from "prop-types";
 const HangmanStateDisplay = ({ gameState, guesses, numMistakes }) => {
 
   return <div>
-    <p> {gameState.map((char)=>{return char ?? "_"}).join('')} </p>
-    <p> <b>Guesses:</b> {guesses.join(', ')} </p>
+    <p className={[styles['phrase-to-guess']]}>
+      {gameState.map((char)=>{return <span className={styles['hangman-letter']}>{char ?? "_"}</span>})}
+    </p>
+
     <p> <b>Mistakes Made: </b> {numMistakes}</p>
+    <div className={styles['guess-box']}>
+      <b>Guessed Letters:</b>
+      <p>{(guesses.length)? guesses.join(', ') : "(None)"} </p>
+    </div>
   </div>
 }
 

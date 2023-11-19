@@ -1,0 +1,28 @@
+
+.letter-guesser {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 25ch;
+}
+
+.letter-button,
+.letter-button-disabled {
+  padding: 0.5em;
+}
+
+.letter-button{
+  border: 1px solid var(--button-border-color);
+  background-color: var(--button-bg-color);
+}
+
+.letter-button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.letter-button-disabled {
+  border: 1px solid var(--button-disabled-text-color);
+  background-color: var(--button-disabled-bg-color);
+  color: var(--button-disabled-text-color);
+}

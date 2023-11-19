@@ -5,8 +5,10 @@ import { AboutYouBackend } from "../../utils/utils";
 import HangmanStateDisplay from "./HangmanStateDisplay/HangmanStateDisplay";
 import { getHangmanStateFromPhrase } from "../../utils/hangmanUtils";
 import HangmanLetterGuesser from "./HangmanLetterGuesser/HangmanLetterGuesser";
+import Loading from "../Loading/Loading";
 
 const HangmanGame = ({ memberId, onGameEnd }) => {
+  const [isLoading, setIsLoading] = useState(true);
   const [phrase, setPhrase] = useState();
   const [gameState, setGameState] = useState([]);
   const letterIndices = useRef({});
@@ -16,6 +18,7 @@ const HangmanGame = ({ memberId, onGameEnd }) => {
 
   useEffect(()=>{
     const getHangmanPhrase = async () => {
+      setIsLoading(true);
       try{
         const { data } = await AboutYouBackend.get(`/games/hangman/${memberId}`);
         const { phrase } = data;
@@ -27,6 +30,7 @@ const HangmanGame = ({ memberId, onGameEnd }) => {
         setGuesses([]);
         setNumMistakes(0);
         setIsGameRunning(true);
+        setIsLoading(false);
       } catch(e){
         console.log(e);
       }
@@ -62,11 +66,17 @@ const HangmanGame = ({ memberId, onGameEnd }) => {
     checkGameEnd(numMistakes + 1);
   }
 
-  return <div>
-    <p>{phrase}</p>
-    <HangmanStateDisplay gameState={gameState} guesses={guesses} numMistakes={numMistakes}/>
-    <HangmanLetterGuesser guesses={guesses} onGuess={onGuess} disabled={!isGameRunning}/>
-  </div>
+  return<div className={styles['hangman-container']}>
+      {
+        (isLoading)?
+          <Loading/>
+        :
+          <>
+            <HangmanStateDisplay gameState={gameState} guesses={guesses} numMistakes={numMistakes}/>
+            <HangmanLetterGuesser guesses={guesses} onGuess={onGuess} disabled={!isGameRunning}/>
+          </>
+      }
+    </div>
 }
 
 HangmanGame.propTypes = {
