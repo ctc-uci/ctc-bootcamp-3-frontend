@@ -17,10 +17,15 @@ const RPS = () => {
 
         let result = determineRPSWinner(selectedMove, otherSelectedMove);
 
-        if (result) {
+        if (result == 1) {
           alert('i won');
         } else {
-          alert('they won');
+          result = determineRPSWinner(otherSelectedMove, selectedMove);
+          if (result == 1) {
+            alert('they won');
+          } else {
+            alert('tie');
+          }
         }
       } catch (e) {
         console.log(e);
