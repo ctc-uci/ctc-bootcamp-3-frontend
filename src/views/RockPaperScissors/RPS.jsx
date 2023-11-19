@@ -18,9 +18,9 @@ const RPS = () => {
         let result = determineRPSWinner(selectedMove, otherSelectedMove);
 
         if (result) {
-          console.log('i won');
+          alert('i won');
         } else {
-          console.log('they won');
+          alert('they won');
         }
       } catch (e) {
         console.log(e);
@@ -30,7 +30,7 @@ const RPS = () => {
     if (playAgainstId && selectedMove) {
       getMemberMove();
     } else {
-      console.log('form is invalid!');
+      alert('form is invalid!');
     }
   };
 
@@ -73,13 +73,28 @@ const RPS = () => {
             })}
           </div>
           <div className={styles['move-select']}>
-            <button type="button" onClick={handleSubmit('Rock')}>
+            <button
+              type="button"
+              onClick={() => {
+                handleSubmit('Rock');
+              }}
+            >
               Rock
             </button>
-            <button type="button" onClick={handleSubmit('Paper')}>
+            <button
+              type="button"
+              onClick={() => {
+                handleSubmit('Paper');
+              }}
+            >
               Paper
             </button>
-            <button type="button" onClick={handleSubmit('Scissors')}>
+            <button
+              type="button"
+              onClick={() => {
+                handleSubmit('Scissors');
+              }}
+            >
               Scissors
             </button>
           </div>
