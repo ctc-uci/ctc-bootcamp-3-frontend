@@ -21,14 +21,12 @@ const AllMembers = () => {
         getMembers();
         console.log(members)
 
-    });
+    }, []);
 
 
     console.log(members)
     const mapMembers = () => {
         let membersInfo = [];
-        console.log("here")
-        // console.log(members)
         for (let i = 0; i < members.length; i++) {
             let member = members.at(i);
             membersInfo.push(<IndividualMemberCard memberLink={"/members/" + i} name={member.memberName} team={member.project} />);
