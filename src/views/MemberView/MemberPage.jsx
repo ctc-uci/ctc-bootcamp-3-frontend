@@ -5,36 +5,33 @@ import axios from 'axios';
 import { AboutYouBackend } from '../../utils/utils';
 
 const MemberPage = () => {
-  const [data, setData] = useState([]);
-  const [requestedName, setRequestedName] = useState('');
+  const [nameInformation, setNameInformation] = useState([]);
 
   const getNames = async () => {
-  const nameData = await AboutYouBackend.get('./members');
-//    console.log(nameData);
-//    console.log(nameData.data);
-   setData(nameData.data);
+    const nameData = await AboutYouBackend.get('./members');
+    const memberID = 10;
+    const nameInformation = await AboutYouBackend.get('./members/' + memberID);
+    setNameInformation(nameInformation.data[0]);
+    console.log(nameInformation);
   }
 
   useEffect(() => {
     getNames();
   }, []);
-
-  const nameList = data.map((dataElements) => (
-    <h1>{dataElements.memberName + ", "}</h1>
-  ));
-
-  const nameArr = data.map((dataElements) => dataElements.memberName)
   
-  console.log(nameList);
-  const filterName = nameArr.filter(names => names.includes(requestedName));
-  
+
   return (
-    <>
+    <> 
       <h1>Member Page</h1>
-      <input value={requestedName} onChange={e => setRequestedName(e.target.value)} />
-      <p>Name: {filterName}</p>
-      {/* <p>Name: {nameList}</p> */}
-      <p></p>
+      <p>Name: {nameInformation.memberName}</p>
+      <p>{nameInformation.memberYear}</p>
+      <p>{nameInformation.majorsMinors}</p>
+      <p>{nameInformation.project}</p>
+      <p>{nameInformation.mbti}</p>
+      <p>{nameInformation.birthday}</p>
+      <p>{nameInformation.spiritAnimal}</p>
+      <p>{nameInformation.bio}</p>
+      <p>{nameInformation.funnyQuote}</p>
     </>
   );
 }
