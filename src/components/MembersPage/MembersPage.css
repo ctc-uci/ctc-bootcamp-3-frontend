@@ -1,0 +1,13 @@
+
+h1 {
+  margin-left: 25px;
+}
+
+.kai div {
+  background-image: linear-gradient(red, yellow);
+}
+
+/* .bg {
+  background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+} */
+
