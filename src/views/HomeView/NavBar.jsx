@@ -1,57 +1,27 @@
-import {
-  Box,
-  Flex,
-  Avatar,
-  HStack,
-  Text,
-  IconButton,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  useDisclosure,
-  useColorModeValue,
-  Stack,
-} from '@chakra-ui/react'
+import React, { useState } from "react";
+import "./Navbar.css";
 
-const NavBar = () => {
-  const Links = ['Home', 'Hangman', 'rps', 'ttl']
+function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const NavLink = (props) => {
-    const { children } = props
-
-    return (
-      <Box
-        as="a"
-        px={2}
-        py={1}
-        rounded={'md'}
-        _hover={{
-          textDecoration: 'none',
-          bg: useColorModeValue('gray.200', 'gray.700'),
-        }}
-        href={'#'}>
-        {children}
-      </Box>
-    )
-  }
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <HStack spacing={8} alignItems={'center'}>
-              <Box>Logo</Box>
-              <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
-                {Links.map((link) => (
-                  <NavLink key={link}>{link}</NavLink>
-                ))}
-              </HStack>
-            </HStack>
-        </Flex>
-    </Box>
-  )
+    <nav className="navbar">
+      <div className="navbar-logo">CTC</div>
+      <button className="navbar-toggle" onClick={toggleMenu}>
+        ☰
+      </button>
+      <ul className={`navbar-links ${isOpen ? "open" : ""}`}>
+        <li><a href="">Home</a></li>
+        <li><a href="hangman">hangman</a></li>
+        <li><a href="rps">Rock, Paper, Scissors</a></li>
+        <li><a href="ttl">Two Truths and a Lie</a></li>
+      </ul>
+    </nav>
+  );
 }
 
-export default NavBar;
+export default Navbar;

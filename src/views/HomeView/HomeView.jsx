@@ -4,7 +4,7 @@ import Member from './Member';
 // import NavBar from './NavBar';
 
 const HomeView = () => {
-    const [members, setMembers] = useState([]);
+    const [members, setMembers] = useState([]); 
 
     const getMembers = async () => {
         const response = await fetch("http://localhost:3001/members");
@@ -16,7 +16,10 @@ const HomeView = () => {
     useEffect(() => {
         const fetchMembers = async () => {
             const data = await getMembers();
+            
             setMembers(data);
+            console.log(data);
+            console.log(data[0].memberName)
         };
 
         fetchMembers();
@@ -26,11 +29,17 @@ const HomeView = () => {
     return (
         <div>
             <h1>Home</h1>
-            <div>
-                {members.length && members.map(member => {
-                  return <Member id={member.id} memberName={member.memberName} memberYear={member.memberYear} project={member.project} />
-                })}
-            </div>
+            { members.length > 0 &&
+                <div>
+                    {members.map((member) => (
+                        <div>
+                            {/* <h1>hello</h1> */}
+                            <Member memberId={member.id} memberName={member.memberName} memberYear={member.memberYear} project={member.project} />
+                        </div>
+                    ))
+                    }
+                </div>
+            }
         </div>
     )
 }

@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
-import { Card, For, Stack } from "@chakra-ui/react"
+// import { Card, For, Stack, Button } from "@chakra-ui/react"
 import PropTypes from 'prop-types'
 import { useNavigate } from "react-router-dom";
 
 
-const Member = ( memberID, memberName, memberYear, project ) => {
+const Member = ({ memberID, memberName, memberYear, project} ) => {
   let navigate = useNavigate();
   const routeChange = () =>{
     let path = `/member/{memberId}`;
@@ -13,19 +13,20 @@ const Member = ( memberID, memberName, memberYear, project ) => {
 
   return (
     <>
-      <Card.Root>
-        <Card.Header />
-        <Card.Body gap="2">
-          <Card.Title mb="2">{memberName}</Card.Title>
-          <Card.Description>
+      {/* <h1>HELLO</h1> */}
+      <div>
+        <div></div>
+        <div style={{ gap: "8px" }}>
+          <h2>{memberName}</h2>
+          <p>
             {project} - {memberYear}
-          </Card.Description>
-        </Card.Body>
-        <Card.Footer justifyContent="flex-end">
-          <Button variant="outline">View</Button>
-          <Button onClick={routeChange}>View</Button>
-        </Card.Footer>
-      </Card.Root>
+          </p>
+        </div>
+        <div style={{ justifyContent: "flex-end", display: "flex" }}>
+          <button>View</button>
+          <button onClick={routeChange}>View</button>
+        </div>
+      </div>
     </>
   )
 }
