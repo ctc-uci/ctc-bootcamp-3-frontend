@@ -15,11 +15,15 @@ const HangmanGame = ({ memberId, onGameEnd }) => {
   const [guesses, setGuesses] = useState([]);
   const [numMistakes, setNumMistakes] = useState(0);
   const [ isGameRunning, setIsGameRunning ] = useState(false);
+  // const [ opponentName, setOpponentName ] = useState(false);
+  //const [ currentPhrase, setCurrentPhrase ] = useState(false);
+
 
   useEffect(()=>{
     const getHangmanPhrase = async () => {
       setIsLoading(true);
       try{
+
         const { data } = await AboutYouBackend.get(`/games/hangman/${memberId}`);
         const { phrase } = data;
         const { hangmanArray, letterIndices: phraseLetterIndices } = getHangmanStateFromPhrase(phrase);
@@ -66,14 +70,27 @@ const HangmanGame = ({ memberId, onGameEnd }) => {
     checkGameEnd(numMistakes + 1);
   }
 
+  // const changeOpponent = async () => {
+  //     const randInt = Math.floor(Math.random()*29)+1;
+  //     console.log(`/members/${randInt}`);
+  //     const members = await AboutYouBackend.get(`/members/${randInt}`);
+  //     const phrase = await AboutYouBackend.get(`/games/hangman/${randInt}`);
+  //     setOpponentName(members.data[0].memberName);
+  //     //setCurrentPhrase(phrase.data.phrase);
+  //     console.log(members.data[0].memberName);
+  //     console.log(phrase.data.phrase);
+  // }
+
   return<div className={styles['hangman-container']}>
       {
         (isLoading)?
           <Loading/>
         :
           <>
+            {/* <h1>{opponentName}</h1>
+            <button onClick={changeOpponent}>Play Against Someone</button> */}
             <HangmanStateDisplay gameState={gameState} guesses={guesses} numMistakes={numMistakes}/>
-            <HangmanLetterGuesser guesses={guesses} onGuess={onGuess} disabled={!isGameRunning}/>
+            <HangmanLetterGuesser guesses={guesses} onGuess={onGuess} disabled={!isGameRunning}/> 
           </>
       }
     </div>

@@ -6,6 +6,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
+        
         <Route exact path="/hangman" element={<HangmanView/>}/>
       </Routes>
     </BrowserRouter>

@@ -9,10 +9,12 @@ const HangmanStateDisplay = ({ gameState, guesses, numMistakes }) => {
       {gameState.map((char)=>{return <span className={styles['hangman-letter']}>{char ?? "_"}</span>})}
     </p>
     <HangmanSVG numMistakes={numMistakes}/>
+    
     <p> <b>Mistakes Made: </b> {numMistakes}</p>
     <div className={styles['guess-box']}>
       <b>Guessed Letters:</b>
       <p>{(guesses.length)? guesses.join(', ') : "(None)"} </p>
+     
     </div>
   </div>
 }
